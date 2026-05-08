@@ -31,6 +31,6 @@ jobs:
           key: ${{ secrets.AWS_PRIVATE_KEY }}
           port: 22
           script: |
-            docker rm -f compro_nim || true
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/inf_23880100011:latest
-            docker run -d --name compro_nim -p 80:80 ${{ secrets.DOCKERHUB_USERNAME }}/inf_23880100011:latest
+            docker rm -f inf_2388010011 || true
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/inf_2388010011:latest
+            docker run -d --name inf_2388010011 -p 80:80 ${{ secrets.DOCKERHUB_USERNAME }}/inf_2388010011:latest
