@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Himpunan Mahasiswa Informatika</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --surface: #111827;
+      --surface-alt: #1f2937;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-2: #6366f1;
+      --radius: 24px;
+      --shadow: 0 25px 60px rgba(15, 23, 42, 0.35);
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.15), transparent 30%),
+                  linear-gradient(180deg, #020617 0%, #0f172a 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    header {
+      display: grid;
+      gap: 32px;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+    }
+    .hero {
+      padding: 40px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.12);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero h1 {
+      margin: 0 0 18px;
+      font-size: clamp(2.4rem, 4vw, 4rem);
+      line-height: 1.05;
+    }
+    .hero p {
+      margin: 0 0 24px;
+      line-height: 1.8;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+    .hero .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    .hero a {
+      display: inline-block;
+      text-decoration: none;
+      padding: 14px 26px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #38bdf8, #6366f1);
+      color: #fff;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .hero a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 28px rgba(56, 189, 248, 0.25);
+    }
+    .visual {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+      border: 1px solid rgba(148, 163, 184, 0.12);
+      box-shadow: var(--shadow);
+      min-height: 520px;
+    }
+    .visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .stats {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-top: 40px;
+    }
+    .card {
+      padding: 26px;
+      border-radius: 22px;
+      background: rgba(30, 41, 59, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.12);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.22);
+    }
+    .card h3 {
+      margin: 0 0 18px;
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .section {
+      margin-top: 64px;
+      display: grid;
+      gap: 32px;
+    }
+    .section h2 {
+      margin: 0 0 8px;
+      font-size: 2rem;
+    }
+    .section p {
+      margin: 0 0 28px;
+      color: var(--muted);
+      max-width: 850px;
+      line-height: 1.8;
+    }
+    .grid-2 {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .feature {
+      padding: 24px;
+      border-radius: 24px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.08);
+    }
+    .feature h3 {
+      margin: 0 0 14px;
+      font-size: 1.1rem;
+    }
+    .feature p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+    .values {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .value-card {
+      padding: 24px;
+      border-radius: 24px;
+      background: rgba(30, 41, 59, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.08);
+    }
+    .value-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+    }
+    .value-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    footer {
+      margin-top: 64px;
+      padding: 28px 24px;
+      border-radius: 24px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.12);
+      text-align: center;
+      color: var(--muted);
+    }
+    @media (max-width: 900px) {
+      header {
+        grid-template-columns: 1fr;
+      }
+      .visual {
+        min-height: 380px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <section class="hero">
+        <span class="pill">Himpunan Mahasiswa Informatika</span>
+        <h1>Mencipta solusi digital berkelanjutan untuk masa depan</h1>
+        <p>Himpunan kami adalah wadah para mahasiswa Informatika yang visioner, kolaboratif, dan berorientasi aksi. Kami membangun ekosistem pembelajaran, inovasi, dan pengabdian yang membuka peluang untuk tumbuh, berinovasi, dan berkontribusi nyata bagi masyarakat.</p>
+        <a href="#visi-misi">Jelajahi Visi & Misi</a>
+      </section>
+
+      <aside class="visual">
+        <img src="https://i.pinimg.com/736x/36/32/14/363214f17a70e1ce911a1eaca4382d7d.jpg" alt="Mahasiswa informatika bekerja bersama" loading="lazy">
+      </aside>
+    </header>
+
+    <div class="stats">
+      <div class="card">
+        <h3>Komunitas</h3>
+        <p>Lebih dari 300 anggota aktif yang berkolaborasi dalam riset, pengembangan aplikasi, dan kompetisi teknologi.</p>
+      </div>
+      <div class="card">
+        <h3>Program</h3>
+        <p>Kegiatan rutin meliputi workshop, seminar, hackathon, pengabdian masyarakat, dan pengembangan portofolio digital.</p>
+      </div>
+      <div class="card">
+        <h3>Jejak Inovasi</h3>
+        <p>Proyek unggulan mencakup solusi pendidikan, sistem informasi kampus, dan aplikasi pintar untuk mendukung akses layanan.</p>
+      </div>
+    </div>
+
+    <section class="section" id="visi-misi">
+      <h2>Visi</h2>
+      <p>Menjadi organisasi mahasiswa Informatika yang menginspirasi generasi digital, memajukan teknologi yang bertanggung jawab, dan mencetak pemimpin muda yang siap menghadapi tantangan global.</p>
+
+      <div class="grid-2">
+        <div class="feature">
+          <h3>Misi 1</h3>
+          <p>Membangun budaya pembelajaran terus-menerus melalui pelatihan teknis, sesi mentorship, dan komunitas studi yang inklusif.</p>
+        </div>
+        <div class="feature">
+          <h3>Misi 2</h3>
+          <p>Mendorong riset kreatif dan kolaborasi antar bidang untuk menghasilkan solusi digital yang berdampak dan berkelanjutan.</p>
+        </div>
+        <div class="feature">
+          <h3>Misi 3</h3>
+          <p>Memfasilitasi mahasiswa dalam mengembangkan kemampuan kepemimpinan, komunikasi, dan etika profesional di dunia teknologi.</p>
+        </div>
+        <div class="feature">
+          <h3>Misi 4</h3>
+          <p>Menghubungkan kampus dengan industri, komunitas, dan lembaga pendidikan untuk memperluas jaringan serta kesempatan berkarir.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Nilai Inti</h2>
+      <p>Kami berdiri atas prinsip integritas, inovasi, kolaborasi, dan keberpihakan pada dampak sosial. Setiap program dirancang agar bergerak selaras dengan kemajuan teknologi dan kebutuhan masyarakat.</p>
+
+      <div class="values">
+        <div class="value-card">
+          <h3>Inovatif</h3>
+          <p>Terus eksplorasi ide baru, implementasi teknologi mutakhir, dan menciptakan solusi yang relevan.</p>
+        </div>
+        <div class="value-card">
+          <h3>Kolaboratif</h3>
+          <p>Mengutamakan kerja sama antaranggota, lintas disiplin, dan kemitraan dengan pemangku kepentingan.</p>
+        </div>
+        <div class="value-card">
+          <h3>Profesional</h3>
+          <p>Mengembangkan karakter tangguh, etika kerja, serta kemampuan untuk berkontribusi secara profesional.</p>
+        </div>
+        <div class="value-card">
+          <h3>Berkelanjutan</h3>
+          <p>Menjadikan teknologi sebagai alat untuk kemajuan yang berkelanjutan, inklusif, dan bermanfaat bagi lingkungan.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Himpunan Mahasiswa Informatika — Bersama membangun generasi digital yang kreatif, cerdas, dan berdaya saing.</p>
+    </footer>
+  </main>
+</body>
+</html>
