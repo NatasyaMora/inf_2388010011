@@ -13,13 +13,13 @@ services:
     restart: always
 
   container-statis:
-    image: mohamadfirdaus12/inf_2388010011:latest
+    image: natasyamora11/inf_2388010011:latest
     ports:
       - "80:80"
     restart: always
 
   container-dinamis:
-    image: mohamadfirdaus12/web-dinamis:latest
+    image: natasyamora11/web-dinamis:latest
     ports:
       - "3000:3000"
     restart: always
